@@ -1,0 +1,16 @@
+app.component.html
+
+<!-- string interpolation-->
+<h1>hola mundo</h1>
+<h2>{{ 'hola mundo'.repeat(5) }}</h2>
+<p>3+3 = {{3+3}}</p>
+
+<h3>Hola, soy {{name}}, tengo {{age}} anos </h3> 
+<img src="{{img}}" alt="imagen">
+
+app.components.ts
+export class AppComponent {
+  name = 'alfredo';
+  age = 26;
+  img = 'https://source.unsplash.com/random';
+}

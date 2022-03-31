@@ -1,0 +1,123 @@
+.box{
+    height: 100px;
+    width: 200px;
+    overflow: auto;
+    background: rgba(0, 0, 255, 0.356);
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.products--grid {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.products--grid div img {
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.products--grid div h2, .products--grid div p{
+    margin: 0;
+    text-align: center;
+} 
+
+.error-message {
+    background: red;
+    color: white;
+    opacity: 0;
+    transition: all linear .5s;
+    &.invalid{
+        opacity: 1;
+    }
+}
+
+
+.container-form{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: rgb(63, 63, 63);
+}
+
+.container-form h1 {
+    color: rgb(255, 217, 0);
+}
+
+.form {
+    min-width: 320px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input-group label{
+    color: white;
+    font-size: 18px;
+}
+.input-group input{
+    background-color: rgba(255, 188, 5, 0.568);
+    height: 20px;
+    padding: 5px;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+}
+.button-form{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    
+    background-color: 
+    white;
+    cursor: pointer;
+    color: rgb(63, 63, 63);
+}
+.error-form {
+    text-align: start;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transition: all linear .5s;
+    &.invalid {
+        opacity: 1;
+    }
+}
+
+.styles-width{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    margin: auto;
+}
+
+.line-error{
+    height: 0;
+    border-bottom: 2px solid;
+    &.invalid{
+        border-color: red;
+    }
+    &.valid{
+        border-color: green;
+    }
+}
+
+@media screen and (min-width: 40em){
+    .products--grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+        height: auto;
+    }
+    .products--grid div img {
+        height: 200px;
+    }
+    .products--grid div h2, .products--grid div p{
+        margin: 0;
+        text-align: start;
+    } 
+}

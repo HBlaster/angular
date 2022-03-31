@@ -1,0 +1,118 @@
+<!--Class & style-->
+<h1>Class & Styles</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+ <p  class="error-message" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+
+<hr/>
+
+<!--**********************-->
+<!--Estructuras de control-->
+<!--**********************-->
+
+<!--[ngSwitch]-->
+<h1>[ngSwitch]</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<div [ngSwitch]="person.name" >
+    <p *ngSwitchCase=" 'jose' " >
+        La persona se llama jose
+    </p>
+    <p *ngSwitchCase=" 'alfredo' " >
+        La persona se llama alfredo
+    </p>
+    <p *ngSwitchCase=" 'fernando' " >
+        La persona se llama fernandeo
+    </p>
+    <p *ngSwitchDefault >
+        No hace match con ninguno
+    </p>
+</div>
+
+<hr/>
+<!--*ngFor Objs-->
+<h1 class="h1--products" > *ngFor objets </h1>
+<div class="products--grid">
+    <div *ngFor="let prod of products" >
+        <img width="200" [src]="prod.imag" alt="image">
+        <h2>{{prod.price}}</h2>
+        <p>{{prod.name}}</p>
+
+    </div>
+</div>
+
+<hr/>
+
+<!--*ngFor-->
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" >
+<button type="submit" (click)="newNames()" >Add name </button>
+<ul>
+    <li *ngIf="names.length === 0" >
+        No hay nombres en la lista
+    </li>
+    <li *ngFor="let name of names; index as i">
+        {{i + 1}} {{name}}
+        <button (click)="deleteName(i)" > Delete</button>
+    </li>
+</ul>
+
+<input type="text" [(ngModel)]="newArticule" placeholder="Add articule" >
+<button type="submit" (click)="AddArticule()" >Add Articule</button>
+<ul>
+    <li *ngIf="super.length === 0" >
+        Agregar un articulo
+    </li>
+    <li *ngFor="let articulo of super; index as i" >
+        {{articulo}}
+        <button (click)="deleteArticule(i)" >Delete</button>
+        
+    </li>
+</ul>
+
+<hr/> 
+<!--*ngIf-->
+<h1>*ngIf</h1>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
+<p *ngIf="person.name === 'jose' && person.age == 26; else BloqueElse "> Soy jose</p>
+<ng-template #BloqueElse >
+    <p>Bloque else</p>
+</ng-template>
+
+<hr/>
+<!--Data biding-->
+<h1>Data Biding</h1>
+<p>Nombre: {{person.name}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" /> 
+<p>valid: {{nameInput.valid}} </p>
+
+<p>Edad {{person.age}}.</p>
+<input type="number" min= "18" required #ageInput="ngModel" [(ngModel)]="person.age" /> <!--#ageInput se usa como identificador de la etiqueta-->
+<p> valid: {{ageInput.valid}}</p>
+
+
+<!--Events-->
+<h1>Eventos</h1>
+<button (click)="toggleBtn()">Toggle Button</button>
+<p>Edad {{person.age}}</p>
+<button  (click)="increaseAge()">age</button>
+
+<div class="box" (scroll)="onScroll($event)" >
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta, sunt, soluta non velit, ex porro aliquid perferendis eveniet esse ut cumque magnam quaerat nihil libero quisquam amet sed delectus doloremque?</p>
+</div>
+
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<p>Nombre: {{person.name}}</p>
+<hr/>
+<!--Property binding-->
+<h1>Propiedades</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<input type="text" [value]="person.name"/>
+<progress max="100" [value]="person.age" ></progress>
+<img [src]="img" width="150px" alt="imagen de prueba">
+<hr/>
+<!-- string interpolation-->
+<h1>hola mundo</h1>
+<h2>{{ 'hola mundo'.repeat(5) }}</h2>
+<p>3+3 = {{3+3}}</p>
+
+<h3>Hola, soy {{person.name}}, tengo {{person.age}} anos </h3> 
+<img src="{{img}}" alt="imagen" width="200px">
