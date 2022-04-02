@@ -1,0 +1,4 @@
+<img width="200" [src]="img" *ngIf="img else elseBlock " >
+<ng-template #elseBlock>
+    <img width="150" src="https://source.unsplash.com/user/wsanter" alt="">
+</ng-template>
