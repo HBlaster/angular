@@ -7,10 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ImgComponent implements OnInit {
 
+  imgDefault = 'https://source.unsplash.com/user/wsanter';
   @Input() img: string ='valor init' ;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  imgError(){
+    this.img= this.imgDefault;
   }
 
 }
